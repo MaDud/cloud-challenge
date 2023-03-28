@@ -4,13 +4,13 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
-resource "google_storage_bucket" "gcb1234" {
-  name     = "gc-bucket"
+resource "google_storage_bucket" "gcb" {
+  name     = "gcb2707199"
   location = "europe-west2"
 }
 
 resource "google_storage_bucket_access_control" "public_rule" {
-  bucket = google_storage_bucket.gcb1234.name
+  bucket = google_storage_bucket.gcb2707199.name
   role   = "READER"
   entity = "allUsers"
 }
@@ -57,6 +57,8 @@ resource "google_sql_database_instance" "dareit" {
 resource "google_sql_user" "users" {
   name     = "dareit_user"
   instance = google_sql_database_instance.dareit.name
-  host     = "dareit_user.com"
   password = "changeme"
 }
+
+
+
